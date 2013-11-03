@@ -56,41 +56,7 @@ public class MediaObj {
         return this.mediaName;
     }
 
-    @JsonProperty(MediaObj.MEDIA_URI)
-    public String getMediaUri() {
-        return this.mediaUri;
-    }
-
-    @JsonProperty(MediaObj.MIME_TYPE)
-    public String getMimeType() {
-        return this.mimeType;
-    }
-
-    @JsonProperty(MediaObj.VENUE_ID)
-    public long getVenueId() {
-        return this.venueId;
-    }
-
-    @JsonIgnore
-    public boolean isEmpty() {
-        return ((this.venueId <= 0) && StringExt.isEmpty(this.mediaName) && StringExt
-                        .isEmpty(this.mimeType));
-    }
-
-    @JsonProperty(MediaObj.ID)
-    public void setId(final long id) {
-        this.id = id;
-    }
-
-    @JsonProperty(MediaObj.MEDIA_NAME)
-    public void setMediaName(final String mediaName) {
-        this.mediaName = mediaName;
-    }
-
-    @JsonProperty(MediaObj.MEDIA_URI)
-    public void setMediaUri(final String mediaUri) {
-        this.mediaUri = mediaUri;
-    }
+    ...
 
     @JsonProperty(MediaObj.MIME_TYPE)
     public void setMimeType(final String mimeType) {
