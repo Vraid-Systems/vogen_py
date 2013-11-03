@@ -6,6 +6,7 @@ ActionScript 3 Value Objects based on inline code annotations.
 
 Usage
 ------------
+####Python
 ```python
 from django.db import models
 
@@ -16,7 +17,7 @@ class Binary(models.Model):
     content_key = models.TextField()
     #@(name=content_type,type=String) comment after annotation
     content_type = models.TextField()
-    #@(name=modified,type=Date)
+    #@(name=modified, type=Date) note the space inbetween fields
     modified = models.DateTimeField(auto_now=True, auto_now_add=True)
 
 #@(package=com.vraidsys.vos,name=BinOwner)
