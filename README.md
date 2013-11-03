@@ -4,7 +4,7 @@ vogen_py
 Static code analysis tool for generating
 ActionScript 3 Value Objects based on inline code annotations.
 
-Usage
+Usage Examples
 ------------
 ####Java
 ```java
@@ -69,6 +69,7 @@ public class MediaObj {
     }
 }
 ```
+
 
 ####Python
 ```python
