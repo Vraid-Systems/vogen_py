@@ -6,6 +6,104 @@ ActionScript 3 Value Objects based on inline code annotations.
 
 Usage
 ------------
+####Java
+```java
+package com.nightpulse.media;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import com.nightpulse.common.util.StringExt;
+
+//for AS VO class @(package=com.nightpulse.vos,name=MediaObj)
+public class MediaObj {
+    private static final String ID = "id";
+    //comment out front @(name=id,type=Number) and behind
+    private long id = 0;
+    private static final String VENUE_ID = "venueId";
+    //@(name=venueId,type=Number)
+    private long venueId = 0;
+    private static final String MEDIA_NAME = "mediaName";
+    //@(name=mediaName, type=String) spaces are allowed inbetween params
+    private String mediaName = "";
+    private static final String MIME_TYPE = "mimeType";
+    //@(name=mimeType,type=String)
+    private String mimeType = "";
+    private static final String MEDIA_URI = "mediaUri";
+    //@(name=mediaUri,type=String)
+    private String mediaUri = "";
+
+    @JsonIgnore
+    public MediaObj() {
+    }
+
+    @JsonIgnore
+    public MediaObj(final long theVenueId, final String theName,
+                    final String theMimeType, final String theUri) {
+        this.venueId = theVenueId;
+        this.mediaName = theName;
+        this.mimeType = theMimeType;
+        this.mediaUri = theUri;
+    }
+
+    @JsonProperty(MediaObj.ID)
+    public long getId() {
+        return this.id;
+    }
+
+    @JsonProperty(MediaObj.MEDIA_NAME)
+    public String getMediaName() {
+        return this.mediaName;
+    }
+
+    @JsonProperty(MediaObj.MEDIA_URI)
+    public String getMediaUri() {
+        return this.mediaUri;
+    }
+
+    @JsonProperty(MediaObj.MIME_TYPE)
+    public String getMimeType() {
+        return this.mimeType;
+    }
+
+    @JsonProperty(MediaObj.VENUE_ID)
+    public long getVenueId() {
+        return this.venueId;
+    }
+
+    @JsonIgnore
+    public boolean isEmpty() {
+        return ((this.venueId <= 0) && StringExt.isEmpty(this.mediaName) && StringExt
+                        .isEmpty(this.mimeType));
+    }
+
+    @JsonProperty(MediaObj.ID)
+    public void setId(final long id) {
+        this.id = id;
+    }
+
+    @JsonProperty(MediaObj.MEDIA_NAME)
+    public void setMediaName(final String mediaName) {
+        this.mediaName = mediaName;
+    }
+
+    @JsonProperty(MediaObj.MEDIA_URI)
+    public void setMediaUri(final String mediaUri) {
+        this.mediaUri = mediaUri;
+    }
+
+    @JsonProperty(MediaObj.MIME_TYPE)
+    public void setMimeType(final String mimeType) {
+        this.mimeType = mimeType;
+    }
+
+    @JsonProperty(MediaObj.VENUE_ID)
+    public void setVenueId(final long venueId) {
+        this.venueId = venueId;
+    }
+}
+```
+
 ####Python
 ```python
 from django.db import models
